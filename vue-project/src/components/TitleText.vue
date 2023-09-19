@@ -9,7 +9,7 @@
     <p>{{ text }}</p>
 </template>
 
-<style>
+<style scoped>
     h1 {
         color: purple;
     }
