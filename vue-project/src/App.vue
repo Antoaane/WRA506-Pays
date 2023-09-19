@@ -8,6 +8,12 @@
   const reseau = 9
   const cultureArtistique = 8
   const communication = 16
+  const developpementBack = 7
+  const developpementFront = 14
+  const anglais = 12
+  const mathematiques = 10
+  const audiovisuel = 3
+
 
   const average = (symfony + integration + reseau + cultureArtistique + communication) / 5
 
@@ -32,13 +38,33 @@
       name: 'Communication', 
       note: communication 
     },
+    { 
+      name: 'Développement back', 
+      note: developpementBack 
+    },
+    { 
+      name: 'Développement front', 
+      note: developpementFront 
+    },
+    { 
+      name: 'Anglais', 
+      note: anglais 
+    },
+    { 
+      name: 'Mathématiques', 
+      note: mathematiques 
+    },
+    { 
+      name: 'Audiovisuel', 
+      note: audiovisuel 
+    }
   ]
 </script>
 
 <template>
   <TitleText />
 
-  <div class="container">
+  <section class="container">
     <ul>
       <li>Note sur Symfony : {{ symfony }}</li>
       <li>Note en intégration : {{ integration }}</li>
@@ -60,7 +86,7 @@
       </tr>
     </table>
 
-    <div class="container-child">
+    <section>
       <div v-for="item in table">
         <div v-if="item.note < 8" style="display: flex;">
           <p>{{ item.name }} : </p>
@@ -75,52 +101,43 @@
           <p style="color: greenyellow;">&MediumSpace;{{ item.note }}</p>
         </div>
       </div>
-    </div>
+    </section>
     
-  </div>
+  </section>
   
 </template>
 
-<style scoped>
-* {
-  color: white;
-}
+<style>
+  * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .container {
+    flex-direction: row;
+  }
 
-p, td {
-  margin: 0 0.25rem;
-}
+  section, table, ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-li {
-  color: red;
-}
+    margin: 1rem;
+    padding: 1rem;
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+    background-color: rgba(43, 61, 61, 0.6);
 
-  margin-top: 2rem;
-  padding: 1rem;
+    border-radius: 1.5rem;
+  }
 
-  background-color: rgb(61, 77, 80);
+  th, tr, li, p {
+    margin: 0.5rem;
+    padding: 0.5rem;
 
-  border-radius: 2rem;
-}
+    background-color: rgba(43, 61, 61, 0.6);
 
-.container-child {
-  background-color: rgb(81, 102, 105);
-  margin-top: 2rem;
-  padding: 1rem;
-  border-radius: 2rem;
+    border-radius: 0.5rem;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center
-}
-
-table {
-  margin-top: 2rem;
-  border-collapse: collapse;
-  border: 1px solid black;
-}
+    list-style: none;
+    color: white;
+  }
 </style>
