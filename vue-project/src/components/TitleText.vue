@@ -1,6 +1,16 @@
 <script>
     const title = 'Notes'
     const text = 'Voici les notes de l\'étudiant :'
+
+    export default {
+        name: 'TitleText',
+        data() {
+            return {
+                title,
+                text
+            }
+        }
+    }
 </script>
 
 <template>
@@ -9,9 +19,9 @@
     <p>{{ text }}</p>
 </template>
 
-<style>
+<style scoped>
     h1 {
-        color: purple;
+        color: blueviolet;
     }
     p {
         color: greenyellow;

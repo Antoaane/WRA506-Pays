@@ -4,10 +4,16 @@
   // const title2 = 'Voici les moyennes'
 
   const symfony = 4
-  const integration = 7
+  const integration = 17
   const reseau = 9
   const cultureArtistique = 8
-  const communication = 6
+  const communication = 16
+  const developpementBack = 7
+  const developpementFront = 14
+  const anglais = 12
+  const mathematiques = 10
+  const audiovisuel = 3
+
 
   const average = (symfony + integration + reseau + cultureArtistique + communication) / 5
 
@@ -32,13 +38,33 @@
       name: 'Communication', 
       note: communication 
     },
+    { 
+      name: 'Développement back', 
+      note: developpementBack 
+    },
+    { 
+      name: 'Développement front', 
+      note: developpementFront 
+    },
+    { 
+      name: 'Anglais', 
+      note: anglais 
+    },
+    { 
+      name: 'Mathématiques', 
+      note: mathematiques 
+    },
+    { 
+      name: 'Audiovisuel', 
+      note: audiovisuel 
+    }
   ]
 </script>
 
 <template>
   <TitleText />
 
-  <div class="container">
+  <section class="container">
     <ul>
       <li>Note sur Symfony : {{ symfony }}</li>
       <li>Note en intégration : {{ integration }}</li>
@@ -59,24 +85,59 @@
         <td>{{ item.note }}</td>
       </tr>
     </table>
-  </div>
+
+    <section>
+      <div v-for="item in table">
+        <div v-if="item.note < 8" style="display: flex;">
+          <p>{{ item.name }} : </p>
+          <p style="color: red;">&MediumSpace;{{ item.note }}</p>
+        </div>
+        <div v-else-if="item.note >= 8 && item.note <= 10" style="display: flex;">
+          <p>{{ item.name }} : </p>
+          <p style="color: orange;">&MediumSpace;{{ item.note }}</p>
+        </div>
+        <div v-else style="display: flex;">
+          <p>{{ item.name }} : </p>
+          <p style="color: greenyellow;">&MediumSpace;{{ item.note }}</p>
+        </div>
+      </div>
+    </section>
+    
+  </section>
   
 </template>
 
-<style scoped>
-li {
-  color: red;
-}
+<style>
+  * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .container {
+    flex-direction: row;
+  }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  section, table, ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-table {
-  margin-top: 2rem;
-  border-collapse: collapse;
-  border: 1px solid black;
-}
+    margin: 1rem;
+    padding: 1rem;
+
+    background-color: rgba(43, 61, 61, 0.6);
+
+    border-radius: 1.5rem;
+  }
+
+  th, tr, li, p {
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    background-color: rgba(43, 61, 61, 0.6);
+
+    border-radius: 0.5rem;
+
+    list-style: none;
+    color: white;
+  }
 </style>
