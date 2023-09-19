@@ -1,6 +1,8 @@
 <script setup>
   import TitleText from './components/TitleText.vue'
 
+  // const title2 = 'Voici les moyennes'
+
   const symfony = 4
   const integration = 7
   const reseau = 9
@@ -8,6 +10,14 @@
   const communication = 6
 
   const average = (symfony + integration + reseau + cultureArtistique + communication) / 5
+
+  const table = [
+    { name: 'Symfony', note: symfony },
+    { name: 'Intégration', note: integration },
+    { name: 'Réseau', note: reseau },
+    { name: 'Culture artistique', note: cultureArtistique },
+    { name: 'Communication', note: communication },
+  ]
 </script>
 
 <template>
@@ -22,6 +32,17 @@
     <br>
     <li>Moyenne générale : {{ average }}</li>
   </ul>
+
+  <table>
+    <tr>
+      <th>Matière</th>
+      <th>Note</th>
+    </tr>
+    <tr v-for="item in table">
+      <td>{{ item.name }}</td>
+      <td>{{ item.note }}</td>
+    </tr>
+  </table>
 </template>
 
 <style scoped>
