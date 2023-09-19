@@ -12,11 +12,26 @@
   const average = (symfony + integration + reseau + cultureArtistique + communication) / 5
 
   const table = [
-    { name: 'Symfony', note: symfony },
-    { name: 'Intégration', note: integration },
-    { name: 'Réseau', note: reseau },
-    { name: 'Culture artistique', note: cultureArtistique },
-    { name: 'Communication', note: communication },
+    { 
+      name: 'Symfony', 
+      note: symfony 
+    },
+    {
+      name: 'Intégration', 
+      note: integration 
+    },
+    { 
+      name: 'Réseau', 
+      note: reseau 
+    },
+    { 
+      name: 'Culture artistique', 
+      note: cultureArtistique 
+    },
+    { 
+      name: 'Communication', 
+      note: communication 
+    },
   ]
 </script>
 
