@@ -1,7 +1,7 @@
-<script>
+<script setup>
     import { onMounted, ref, watch } from 'vue'
     import axios from 'axios'
-    import { ModelSelect } from 'vue-search-select/dist/VueSearchSelect/src/components/ModelSelect.vue'
+    // import { ModelSelect } from 'vue-search-select/dist/VueSearchSelect/src/components/ModelSelect.vue'
 
     let data = ref('')
     let recherche = ref('')
@@ -18,7 +18,11 @@
     })
 
     function filtrerPays() {
-        data.value = dataFull.value.filter(pays => pays.name.common.toLowerCase().includes(recherche.value.toLowerCase()))
+        if (recherche.value === '') {
+            data.value = [...dataFull.value];  // Réinitialise la liste des pays à son état original
+        } else {
+            data.value = dataFull.value.filter(pays => pays.name.common.toLowerCase().includes(recherche.value.toLowerCase()));
+        }
     }
 
 </script>

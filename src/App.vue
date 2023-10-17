@@ -42,4 +42,24 @@
     color: rgb(78, 127, 131);
     background-color: white;
   }
+
+  input[type = "text"] {
+    padding: 0.5rem;
+    margin: 0.5rem;
+
+    border-radius: 0.5rem;
+  }
+
+  .flag {
+    width: 15rem;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    border: white 2px;
+  }
 </style>
